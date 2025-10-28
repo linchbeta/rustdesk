@@ -994,7 +994,7 @@ pub fn get_api_server(api: String, custom: String) -> String {
     }
     if res.starts_with("https")
         && res.ends_with(":21114")
-        && get_builtin_option(keys::OPTION_ALLOW_HTTPS_21114) != "Y"
+        && get_builtin_option(keys::OPTION_ALLOW_HTTPS_21114) != "N"
     {
         return res.replace(":21114", "");
     }
