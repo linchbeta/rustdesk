@@ -30,11 +30,14 @@ pub fn update_controlling_session_count(count: usize) {
 
 #[allow(dead_code)]
 pub fn start_auto_update() {
+    //let _sender = TX_MSG.lock().unwrap();
     return;
 }
 
 #[allow(dead_code)]
 pub fn manually_check_update() -> ResultType<()> {
+    //let sender = TX_MSG.lock().unwrap();
+    //sender.send(UpdateMsg::CheckUpdate)?;
     Ok(())
 }
 
@@ -75,7 +78,8 @@ fn has_no_controlling_conns() -> bool {
 
 fn start_auto_update_check() -> Sender<UpdateMsg> {
     let (tx, rx) = channel();
-    std::thread::spawn(move || start_auto_update_check_(rx));
+    //尝试禁用自动更新
+    //std::thread::spawn(move || start_auto_update_check_(rx));
     return tx;
 }
 
